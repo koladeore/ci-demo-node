@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint .",
-    "build": "mkdir -p dist && npm run lint && npm test"
+    "lint": "npx eslint .",
+    "build": "mkdir -p dist && npx eslint . && npm test"
   },
   "keywords": [],
   "author": "",
