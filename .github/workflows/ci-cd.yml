@@ -74,19 +74,18 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # Automatically provided by GitHub
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
-
+      - name: Install dependencies
+        run: npm install
       - name: Build project
         run: npm run build
-
       - name: Create GitHub Release
         id: create_release
         uses: elgohr/Github-Release-Action@v5
