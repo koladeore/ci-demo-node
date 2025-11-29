@@ -69,11 +69,6 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
 
   release:
     needs: build
@@ -84,10 +79,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Download built artifact
-        uses: actions/download-artifact@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          name: dist
+          node-version: 20
+
+      - name: Build project
+        run: npm run build
 
       - name: Create GitHub Release
         id: create_release
