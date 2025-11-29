@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "build": "npm run lint && npm test"
+    "build": "mkdir -p dist && npm run lint && npm test"
   },
   "keywords": [],
   "author": "",
